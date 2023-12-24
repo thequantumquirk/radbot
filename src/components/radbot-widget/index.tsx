@@ -41,7 +41,7 @@ export default function RadBotWidget() {
                       <MessageCircle />
                     </Button>
                   </DialogTrigger>
-                  <DialogContent>
+                  <DialogContent className="bottom-5 right-0 p-0 rounded-lg md:right-5 h-[70vh] translate-x-0 translate-y-[-30%]">
                     <ChatScreen />
                   </DialogContent>
                 </Dialog>
