@@ -184,17 +184,23 @@ const ChatbotSidebar = () => {
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <DialogTrigger asChild>
-                            <button>
+                            <button disabled={chats.length <= 1}>
                               <Trash
                                 size={20}
-                                className="opacity-50 hover:opacity-100 transition-all"
+                                className={`${
+                                  chats.length <= 1
+                                    ? "opacity-25"
+                                    : "opacity-50 hover:opacity-100 transition-all"
+                                }`}
                               />
                             </button>
                           </DialogTrigger>
                         </TooltipTrigger>
-                        <TooltipContent>
-                          Delete the Chat Instance
-                        </TooltipContent>
+                        {chats.length > 1 && (
+                          <TooltipContent>
+                            <p>Delete the Chat Instance</p>
+                          </TooltipContent>
+                        )}
                       </Tooltip>
                       <DialogContent>
                         <DialogHeader>
