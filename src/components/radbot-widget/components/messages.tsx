@@ -12,6 +12,15 @@ export default function MessagesSection({
     `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
   const [audioId, setAudioId] = useState<number | null>(null);
   const [videoId, setVideoId] = useState<number | null>(null);
+
+  const handleAudioId = (id: number) => {
+    setAudioId(audioId !== id ? id : null);
+  };
+
+  const handleVideoId = (id: number) => {
+    setVideoId(videoId !== id ? id : null);
+  };
+
   return (
     <div className="grow h-full flex flex-col">
       {messages.map((message, id) => (
@@ -40,11 +49,11 @@ export default function MessagesSection({
                   </video>
                 )}
                 <div className="flex w-full justify-end items-center gap-1">
-                  <button onClick={() => setAudioId(id)}>
+                  <button onClick={() => handleAudioId(id)}>
                     <AudioLines size={20} />
                     <p className="sr-only">Toggle Audio</p>
                   </button>
-                  <button onClick={() => setVideoId(id)}>
+                  <button onClick={() => handleVideoId(id)}>
                     <Video size={24} />
                     <p className="sr-only">Toggle Video</p>
                   </button>
