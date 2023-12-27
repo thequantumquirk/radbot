@@ -22,7 +22,7 @@ import { Button } from "../ui/button";
 export default function PromptInput() {
   const { toast } = useToast();
   const [prompt, setPrompt] = useState("");
-  const { setMessages } = useContext(MessagesContext);
+  const { messages, setMessages } = useContext(MessagesContext);
   const { chatId } = useContext(ChatIdContext);
   const { isChatPresent, setIsChatPresent } = useContext(ChatContext);
 
@@ -34,11 +34,17 @@ export default function PromptInput() {
     setIsChatPresent(val);
   };
 
-  const insertMessage = (text: string, role: "user" | "assistant") => {
+  const insertMessage = (
+    content: string,
+    role: "user" | "assistant",
+    audio?: string,
+    video?: string
+  ) => {
     const message: MessageType = {
-      id: crypto.randomUUID(),
       role,
-      content: text,
+      content,
+      audio,
+      video,
     };
     setMessages((prev: any) => {
       const updatedChatResponse = prev ? [...prev, message] : [message];
@@ -51,6 +57,11 @@ export default function PromptInput() {
   };
 
   const renderMarkdown = async (markdown: string) => {
+    // Checking if the response has any HTML (the bot tends to reply with html sometimes)
+    if (/<\/[a-z][\s\S]*>/i.test(markdown)) {
+      return markdown;
+    }
+
     const file = await unified()
       .use(remarkParse)
       .use(remarkRehype)
@@ -69,6 +80,7 @@ export default function PromptInput() {
         "https://api.gooey.ai/v2/video-bots/?example_id=ehsu8hb8",
         {
           input_prompt,
+          messages: messages.slice(-100), // send only last 50 conversation exchanges
         },
         {
           headers: {
@@ -81,7 +93,9 @@ export default function PromptInput() {
     },
     onSuccess: async (data) => {
       let message = await renderMarkdown(data.output.output_text[0]);
-      insertMessage(message, "assistant");
+      let audio = data.output.output_audio[0];
+      let video = data.output.output_video[0];
+      insertMessage(message, "assistant", audio, video);
     },
     onError: (error) => {
       if (error) {
