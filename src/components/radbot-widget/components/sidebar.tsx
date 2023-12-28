@@ -234,7 +234,7 @@ const ChatbotSidebar = () => {
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
-              className="absolute top-5 p-3 h-8 lg:right-[-3.5rem] right-[-4.5rem]"
+              className="absolute top-5 p-3 h-8 right-[-3.5rem]"
               onClick={handleCloseSidebar}
             >
               <X size={18} />

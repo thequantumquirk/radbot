@@ -30,7 +30,8 @@
     "remark-rehype": "^11.0.0",
     "tailwind-merge": "^2.1.0",
     "tailwindcss-animate": "^1.0.7",
-    "unified": "^11.0.4"
+    "unified": "^11.0.4",
+    "vaul": "^0.8.0"
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^5.12.1",
