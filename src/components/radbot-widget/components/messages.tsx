@@ -29,8 +29,8 @@ export default function MessagesSection({
             className={`${
               message.role === "assistant"
                 ? "bg-background/80"
-                : "text-white bg-card"
-            } items-center p-4 w-full border-b border-white/40`}
+                : "text-foreground bg-card"
+            } items-center p-4 w-full border-b border-white`}
           >
             <p className="font-bold">{capitalize(message.role)}</p>
             <div className="whitespace-pre-wrap">{parse(message.content)}</div>
