@@ -8,7 +8,7 @@ import {
 import { MessageType } from "@/types/MessageType";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MessageCircle } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChatContext } from "./providers/chat-provider";
 import { ChatIdContext } from "./providers/chatid-provider";
 import { MessagesContext } from "./providers/messages-provider";
@@ -24,7 +24,10 @@ export default function RadBotWidget() {
   const [chatId, setChatId] = useState("");
   const [messages, setMessages] = useState<MessageType[]>([]);
   const [open, setOpen] = useState(false);
-  const windowWidth = useRef(window.innerWidth);
+  const windowWidth = useRef(0);
+  useEffect(() => {
+    windowWidth.current = window.innerWidth;
+  }, []);
   return (
     <TooltipProvider>
       <ThemeProvider

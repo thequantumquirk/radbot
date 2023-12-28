@@ -23,6 +23,7 @@ import { Input } from "../ui/input";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import { ThemeToggle } from "../ui/theme-toggle";
 import { ChatIdContext } from "../providers/chatid-provider";
+import { v4 as uuidv4 } from "uuid";
 
 const ChatbotSidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,7 +56,7 @@ const ChatbotSidebar = () => {
 
   const createChat = () => {
     let newChat = {
-      key: crypto.randomUUID(),
+      key: uuidv4(),
       name: "New Chat",
     };
     if (chats) {
@@ -89,7 +90,7 @@ const ChatbotSidebar = () => {
       setChats(JSON.parse(savedChats));
     } else if (chats.length === 0) {
       let newChat = {
-        key: crypto.randomUUID(),
+        key: uuidv4(),
         name: "New Chat",
       };
       setChats([newChat]);
