@@ -205,7 +205,7 @@ const ChatbotSidebar = () => {
                       </Tooltip>
                       <DialogContent>
                         <DialogHeader>
-                          <h2>Do you want to delete the Chat?</h2>
+                          <h4>Do you want to delete the Chat?</h4>
                         </DialogHeader>
                         <DialogFooter>
                           <div className="flex gap-2">

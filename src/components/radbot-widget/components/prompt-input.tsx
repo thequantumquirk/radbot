@@ -123,7 +123,7 @@ export default function PromptInput() {
     <>
       <div className="flex gap-2 items-center">
         <Input
-          className="w-64"
+          className="w-64 lg:w-[40vw]"
           placeholder="Enter your Prompt"
           value={prompt}
           onChange={handlePrompt}

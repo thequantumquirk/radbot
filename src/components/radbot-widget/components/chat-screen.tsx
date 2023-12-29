@@ -10,7 +10,7 @@ export default function ChatScreen() {
   const { isChatPresent } = useContext(ChatContext);
   const { messages } = useContext(MessagesContext);
   return (
-    <main className="flex relative flex-col items-center justify-center gap-4 p-4 overflow-hidden h-full">
+    <main className="flex relative flex-col items-center justify-center gap-4 p-4 overflow-hidden h-screen">
       <ChatbotSidebar />
       {!isChatPresent ? (
         <section className="flex flex-col justify-between items-center">
@@ -28,13 +28,13 @@ export default function ChatScreen() {
           <div className="hidden lg:block">
             <Image src="/logo.svg" alt="Logo" height={40} width={40} />
           </div>
-          <h1 className="text-2xl w-full font-bold">
+          <h1 className="text-2xl lg:text-3xl w-full font-bold">
             The <span className="text-primary">Gooey</span> Chatbot
           </h1>
         </div>
       )}
       {messages.length > 0 && (
-        <section className="grow w-full h-64 bg-foreground/10 rounded-lg overflow-y-scroll">
+        <section className="grow w-full lg:w-[80vw] h-64 bg-foreground/10 rounded-lg overflow-y-scroll">
           <MessagesSection messages={messages} />
         </section>
       )}
