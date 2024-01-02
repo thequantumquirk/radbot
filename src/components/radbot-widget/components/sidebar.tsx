@@ -249,22 +249,20 @@ const ChatbotSidebar = () => {
 
   return (
     <>
-      <div>
-        {!isOpen && (
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button
-                className={`absolute top-5 left-5 p-3 h-8`}
-                onClick={handleOpenSidebar}
-              >
-                <Menu size={16} />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>Open the Sidebar</TooltipContent>
-          </Tooltip>
-        )}
-        {renderSidebar()}
-      </div>
+      {!isOpen && (
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              className={`absolute top-4 left-5 p-3 h-8`}
+              onClick={handleOpenSidebar}
+            >
+              <Menu size={16} />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>Open the Sidebar</TooltipContent>
+        </Tooltip>
+      )}
+      {renderSidebar()}
     </>
   );
 };
