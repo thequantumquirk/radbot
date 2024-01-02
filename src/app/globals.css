@@ -24,6 +24,18 @@
     --input: 240 5.9% 90%;
     --ring: 346.8 77.2% 49.8%;
     --radius: 0.5rem;
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
   }
 
   .dark {
