@@ -34,7 +34,7 @@ export default function ChatScreen() {
         </div>
       )}
       {messages.length > 0 && (
-        <section className="grow w-full lg:w-[80vw] h-64 bg-foreground/10 rounded-lg overflow-y-scroll">
+        <section className="grow w-full lg:w-[80vw] h-64 bg-foreground/10 rounded-lg overflow-y-hidden">
           <MessagesSection messages={messages} />
         </section>
       )}
