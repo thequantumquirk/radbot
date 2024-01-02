@@ -28,8 +28,8 @@ export default function MessagesSection({
           <div
             className={`${
               message.role === "assistant"
-                ? "bg-background/80"
-                : "text-foreground bg-card"
+                ? "bg-assist-bg"
+                : "text-foreground bg-user-bg"
             } items-center p-4 w-full border-b border-white`}
           >
             <p className="font-bold">{capitalize(message.role)}</p>
