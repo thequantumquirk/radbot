@@ -45,7 +45,10 @@ export default function MessagesSection({
                     <source src={message.audio} type="audio/mpeg"></source>
                     Your browser does not support the audio element.
                   </audio>
-                  <video controls className="my-2 rounded-lg w-full max-w-sm">
+                  <video
+                    controls
+                    className="my-2 rounded-lg w-full max-w-sm h-64"
+                  >
                     <source src={message.video} type="video/mp4"></source>
                     Your browser does not support the video element.
                   </video>
