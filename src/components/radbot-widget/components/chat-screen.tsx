@@ -10,7 +10,11 @@ export default function ChatScreen() {
   const { isChatPresent } = useContext(ChatContext);
   const { messages } = useContext(MessagesContext);
   return (
-    <main className="flex relative flex-col items-center justify-center gap-4 p-4 overflow-hidden h-screen bg-background">
+    <main
+      className={`flex relative flex-col items-center ${
+        !isChatPresent ? "justify-center" : "justify-between"
+      } gap-4 p-4 overflow-hidden h-screen bg-background`}
+    >
       <ChatbotSidebar />
       {!isChatPresent ? (
         <section className="flex flex-col justify-between items-center">
