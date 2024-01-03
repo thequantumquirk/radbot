@@ -21,7 +21,7 @@ export default function MessagesSection({
     scrollToBottom();
   }, [messages]);
   return (
-    <div className="relative grow h-full flex flex-col-reverse overflow-scroll">
+    <div className="relative grow h-full flex flex-col-reverse overflow-y-scroll">
       {messages
         .slice(0)
         .reverse()
