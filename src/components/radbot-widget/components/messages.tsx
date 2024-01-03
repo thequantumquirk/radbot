@@ -41,10 +41,6 @@ export default function MessagesSection({
               </div>
               {message.role === "assistant" && (
                 <>
-                  <audio controls className="my-2 w-full max-w-sm rounded-lg">
-                    <source src={message.audio} type="audio/mpeg"></source>
-                    Your browser does not support the audio element.
-                  </audio>
                   <video
                     controls
                     className="my-2 rounded-lg w-full max-w-sm h-64"
