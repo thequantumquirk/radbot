@@ -119,7 +119,7 @@ const ChatbotSidebar = () => {
         !isOpen ? "left-[-30rem]" : "left-0 backdrop-blur-sm w-full"
       } absolute top-0 transition-all h-full duration-300 rounded-lg ease-in-out z-50`}
     >
-      <div className="relative h-full w-80 lg:w-96 bg-secondary rounded-lg p-4">
+      <div className="relative h-full w-60 sm:w-96 bg-secondary rounded-lg p-2 sm:p-4">
         <div className="flex gap-1">
           <Button
             className="flex gap-2 items-center justify-center w-full"

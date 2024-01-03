@@ -19,10 +19,10 @@ export default function ChatScreen() {
       {!isChatPresent ? (
         <section className="flex flex-col justify-between items-center">
           <Image src="/logo.svg" alt="Logo" height={100} width={100} />
-          <h1 className="text-3xl lg:text-4xl font-bold">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
             The <span className="text-primary">Gooey</span> Chatbot
           </h1>
-          <h4>
+          <h4 className="text-sm sm:text-md lg:text-xl font-bold">
             Ask your <span className="text-primary">queries</span> and get it{" "}
             <span className="text-primary">answered</span>
           </h4>
